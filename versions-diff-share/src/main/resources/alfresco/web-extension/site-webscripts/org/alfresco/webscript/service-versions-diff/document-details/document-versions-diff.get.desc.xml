@@ -1,0 +1,7 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<webscript>
+	<shortname>document-details-versions</shortname>
+	<description>Document Details Versions Component</description>
+	<!-- <url>/components/document-details/document-versions-diff</url>-->
+	<url>/components/service-versions-diff/document-versions-diff</url>
+</webscript>

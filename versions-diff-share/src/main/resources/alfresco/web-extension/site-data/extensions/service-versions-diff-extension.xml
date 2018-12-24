@@ -1,0 +1,35 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<extension>
+    <modules>
+        <module>
+        	<!-- <id>Document Versions Diff :: Panel Replacer Module</id> -->
+        	<id>service-versions-diff-extension</id>
+            <version>1.0</version>
+            <auto-deploy>true</auto-deploy>          
+            
+            <evaluator type="default.extensibility.evaluator" />
+            <components>
+                <!-- Replace Document Versions Panel with Document Versions Diff Panel -->
+                <component>
+                    <scope>template</scope>
+                    <region-id>document-versions</region-id>
+                    <source-id>document-details</source-id>
+                    <sub-components>
+                        <sub-component id="default">
+                            <evaluations>
+                                <evaluation id="replaceVersionsHistory">
+                                    <evaluators>    
+                                        <evaluator type= "service-versions-diff.evaluator.doclib.action.versionsdiff.checkMimetype" ></evaluator>                                
+                                    </evaluators>
+                                    <!-- <url>/components/document-details/document-versions-diff</url>  -->
+                                    <url>/components/service-versions-diff/document-versions-diff</url>
+                                    <render>true</render>
+								</evaluation>
+							</evaluations>
+						</sub-component>
+					</sub-components>
+				</component>
+			</components>
+		</module>
+	</modules>
+</extension>

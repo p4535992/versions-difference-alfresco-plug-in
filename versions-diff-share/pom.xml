@@ -170,8 +170,52 @@
 					<source>1.7</source>
 					<target>1.7</target>
 				</configuration>
-			</plugin>			
-	
+			</plugin>	
+			
+				      
+	      <plugin>
+	          <groupId>org.apache.maven.plugins</groupId>
+	          <artifactId>maven-resources-plugin</artifactId>
+	          <version>3.0.1</version>
+	          <configuration>
+	              <encoding>UTF-8</encoding>
+	              <nonFilteredFileExtensions> <!-- jpg, jpeg, gif, bmp and png are added automatically -->
+	                  <nonFilteredFileExtension>ftl</nonFilteredFileExtension>
+	                  <nonFilteredFileExtension>acp</nonFilteredFileExtension>
+	                  <nonFilteredFileExtension>svg</nonFilteredFileExtension>
+	                  <nonFilteredFileExtension>pdf</nonFilteredFileExtension>
+	                  <nonFilteredFileExtension>doc</nonFilteredFileExtension>
+	                  <nonFilteredFileExtension>docx</nonFilteredFileExtension>
+	                  <nonFilteredFileExtension>xls</nonFilteredFileExtension>
+	                  <nonFilteredFileExtension>xlsx</nonFilteredFileExtension>
+	                  <nonFilteredFileExtension>ppt</nonFilteredFileExtension>
+	                  <nonFilteredFileExtension>pptx</nonFilteredFileExtension>
+	                  <nonFilteredFileExtension>bin</nonFilteredFileExtension>
+	                  <nonFilteredFileExtension>lic</nonFilteredFileExtension>
+	                  <nonFilteredFileExtension>swf</nonFilteredFileExtension>
+	                  <nonFilteredFileExtension>zip</nonFilteredFileExtension>
+	                  <nonFilteredFileExtension>msg</nonFilteredFileExtension>
+	                  <nonFilteredFileExtension>jar</nonFilteredFileExtension>
+	                  <nonFilteredFileExtension>ttf</nonFilteredFileExtension>
+	                  <nonFilteredFileExtension>eot</nonFilteredFileExtension>
+	                  <nonFilteredFileExtension>woff</nonFilteredFileExtension>
+	                  <nonFilteredFileExtension>woff2</nonFilteredFileExtension>
+	                  <nonFilteredFileExtension>css</nonFilteredFileExtension>
+	                  <nonFilteredFileExtension>ico</nonFilteredFileExtension>
+	                  <nonFilteredFileExtension>psd</nonFilteredFileExtension>
+	                  <nonFilteredFileExtension>js</nonFilteredFileExtension>
+	              </nonFilteredFileExtensions>
+	          </configuration>
+	        </plugin>
+	        <!-- Compress JavaScript files and store as *-min.js -->
+	        <!--  	          
+            <plugin>
+                <groupId>net.alchim31.maven</groupId>
+                <artifactId>yuicompressor-maven-plugin</artifactId>
+                <version>1.5.1</version>
+            </plugin>
+            -->	
+            	
 		</plugins>
 		
         <resources>

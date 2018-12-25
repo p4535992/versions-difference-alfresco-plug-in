@@ -2,7 +2,7 @@
 <template-instance>
    <!-- <template-type>org/alfresco/versions-difference</template-type> -->
    <template-type>org/alfresco/extension/service-versions-diff/versions-difference</template-type>
-   <properties> 
+   <properties>
       <pageFamily>documentlibrary</pageFamily>
       <container>documentLibrary</container>
    </properties>
@@ -13,13 +13,15 @@
          <region-id>title</region-id>
          <sub-components>
             <sub-component id="default">
-               <evaluations>                 
+               <evaluations>
+                  <!-- if in site: Site title -->
                   <evaluation id="site">
                      <evaluators>
                         <evaluator type="site.component.evaluator"/>
                      </evaluators>
                      <url>/components/title/collaboration-title</url>
                   </evaluation>
+                  <!-- otherwise: Repository title -->
                   <evaluation id="repo">
                      <url>/components/title/simple-title</url>
                      <properties>
@@ -31,14 +33,14 @@
             </sub-component>
          </sub-components>
       </component>
-      
+
       <!-- Site Navigation -->
-      
       <component>
          <region-id>navigation</region-id>
          <sub-components>
             <sub-component id="default">
                <evaluations>
+                  <!-- if in site: Site navigation -->
                   <evaluation id="site">
                      <evaluators>
                         <evaluator type="site.component.evaluator"/>
@@ -48,13 +50,13 @@
                </evaluations>
             </sub-component>
          </sub-components>
-      </component>      
+      </component>
 
       <!-- Custom Code -->
       <component>
          <region-id>doclib-custom</region-id>
          <url>/components/documentlibrary/doclib-custom</url>
       </component>
-      
+
    </components>
 </template-instance>

@@ -83,5 +83,6 @@
             <!-- <url>/components/versions-diff-hook</url> -->
             <url>/components/service-versions-diff/versions-diff-hook</url>
         </component>
-   </components>
+
+    </components>
 </page>

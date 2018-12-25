@@ -45,9 +45,13 @@
 package org.alfresco.extension.versionsdiff;
 
 import java.util.Map;
+
+import javax.swing.plaf.basic.BasicTreeUI.TreeHomeAction;
+
 import java.util.HashMap;
 import java.util.LinkedList;
 
+import org.alfresco.error.AlfrescoRuntimeException;
 import org.alfresco.extension.versionsdiff.diff_match_patch.Diff;
 import org.alfresco.model.ContentModel;
 import org.alfresco.service.ServiceRegistry;
@@ -63,7 +67,7 @@ import org.alfresco.repo.content.transform.ContentTransformer;
 import org.apache.commons.lang.StringUtils;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
-
+import org.json.JSONObject;
 import org.springframework.extensions.webscripts.WebScriptRequest;
 import org.springframework.extensions.webscripts.Cache;
 import org.springframework.extensions.webscripts.DeclarativeWebScript;
@@ -84,45 +88,60 @@ public class VersionsDifferenceWebscript extends DeclarativeWebScript
     @Override
     protected Map<String, Object> executeImpl(WebScriptRequest req, Status status, Cache cache)
     {
-        if(null == req)
-        {
-            logger.error("VersionsDifferenceWebscript.java: The request URL is not well formatted");
-            throw new WebScriptException("VersionsDifferenceWebscript.java: The request URL is not well formatted");
-        }else{
-            
-            // generate the returned model object
-            Map<String, Object> model = new HashMap<String, Object>();
-
-            // node reference to the last version of the document
-            NodeRef lastVersRef = getArgsNodeRef(req);
-            
-            // node reference to the selected version of the document
-            NodeRef selectVersRef = getArgsVersRef(req);
-
-            // Instantiate the diff_match_patch object
-            diff_match_patch diffMatchPatch = new diff_match_patch();
-            
-            // selectedVersRef is the first parameter for INSERT and DELETE right computation
-            LinkedList<Diff> diffList = diffMatchPatch.diff_main(getPlainTxtTrasformation(selectVersRef), getPlainTxtTrasformation(lastVersRef));
-            
-            // semantic cleanup post-processing for human readable differentiation
-            diffMatchPatch.diff_cleanupSemantic(diffList);
-            
-            LinkedList<String[]> diffObjList = new LinkedList<String[]>();
-            
-            // loop through the Diffs LinkedList
-            while (!diffList.isEmpty())
-            {
-                // Pop of the first element in the list
-                Diff element = diffList.pop();
-                String[] obj = {element.operation.toString(), element.text.toString()};
-                diffObjList.add(obj);
-            }
-            
-            
-            model.put("result", diffObjList);
-            return model;
-        }
+    	try{
+	        if(null == req)
+	        {
+	            logger.error("VersionsDifferenceWebscript.java: The request URL is not well formatted");
+	            throw new WebScriptException("VersionsDifferenceWebscript.java: The request URL is not well formatted");
+	        }else{
+	            
+	            // generate the returned model object
+	            Map<String, Object> model = new HashMap<String, Object>();
+	
+	            // node reference to the last version of the document
+	            NodeRef lastVersRef = getArgsNodeRef(req);
+	            
+	            // node reference to the selected version of the document
+	            NodeRef selectVersRef = getArgsVersRef(req);
+	
+	            // Instantiate the diff_match_patch object
+	            diff_match_patch diffMatchPatch = new diff_match_patch();
+	            
+	            // selectedVersRef is the first parameter for INSERT and DELETE right computation
+	            LinkedList<Diff> diffList = diffMatchPatch.diff_main(getPlainTxtTrasformation(selectVersRef), getPlainTxtTrasformation(lastVersRef));
+	            
+	            // semantic cleanup post-processing for human readable differentiation
+	            diffMatchPatch.diff_cleanupSemantic(diffList);
+	            
+	            LinkedList<String[]> diffObjList = new LinkedList<String[]>();
+	            
+	            // loop through the Diffs LinkedList
+	            while (!diffList.isEmpty())
+	            {
+	                // Pop of the first element in the list
+	                Diff element = diffList.pop();
+	                String[] obj = {element.operation.toString(), element.text.toString()};
+	                diffObjList.add(obj);
+	            }
+	            
+	            
+	            model.put("result", diffObjList);
+	            return model;
+	            
+	            //final JSONObject jsonObject = new JSONObject();
+	            //jsonObject.put("result", jsonObject.toString());
+	            //return model;
+	            
+	            //final JSONObject jsonObject = new JSONObject();
+	            //jsonObject.put("nodeRef", nodeRefPdf);
+	            //final HashMap<String, Object> hashMap = new HashMap<String, Object>();
+	            //hashMap.put("json", jsonObject.toString());
+	            //return hashMap;
+	        }
+    	}catch(Throwable ex){
+    		logger.error(ex.getMessage(),ex);
+    		throw new AlfrescoRuntimeException(ex.getMessage(),ex);
+    	}
     }
             
     private ContentService getContentService()

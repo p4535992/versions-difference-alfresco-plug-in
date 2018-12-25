@@ -1,19 +1,52 @@
+<#-- <#include "../component.head.inc"> -->
+<#include "/org/alfresco/components/component.head.inc" />
+<#include "/org/alfresco/include/alfresco-macros.lib.ftl" />
+
+<#-- Document Versions Custom -->
+<@markup id="css" >
+  <@link rel="stylesheet" type="text/css" href="${page.url.context}/res/service-versions-diff/document-details/document-versions-diff-custom.css" />
+</@>
+
+<@markup id="js">
+   <@script type="text/javascript" src="${page.url.context}/res/service-versions-diff/document-details/document-versions-diff-custom.js"></@script>
+</@>
+
+<#-- Revert Version -->
+<@markup id="css" >
+  <@link rel="stylesheet" type="text/css" href="${page.url.context}/res/modules/document-details/revert-version.css" />
+</@>
+
+<@markup id="js">
+   <@script type="text/javascript" src="${page.url.context}/res/modules/document-details/revert-version.js"></@script>
+</@>
+
+<#-- Historic Properties Viewer -->
+<@markup id="css" >
+  <@link rel="stylesheet" type="text/css" href="${page.url.context}/res/modules/document-details/historic-properties-viewer.css" />
+</@>
+
+<@markup id="js">
+   <@script type="text/javascript" src="${page.url.context}/res/modules/document-details/historic-properties-viewer.js"></@script>
+</@>
+
 <#if allowNewVersionUpload??>
    <#if workingCopyVersion??>
       <!-- No version component is displayed since it is a working copy -->
    <#else>
       <#assign el=args.htmlid?js_string>
       <script type="text/javascript">//<![CDATA[
-      new Alfresco.DocumentVersions("${el}").setOptions(
-      {
-         nodeRef: "${nodeRef?js_string}",
-         siteId: <#if site??>"${site?js_string}"<#else>null</#if>,
-         containerId: "${container?js_string}",
-         workingCopyVersion: <#if workingCopyVersion??>"${workingCopyVersion?js_string}"<#else>null</#if>,
-         allowNewVersionUpload: ${allowNewVersionUpload?string}
-      }).setMessages(
-         ${messages}
-      );
+
+	      new Alfresco.DocumentVersions("${el}").setOptions(
+	      {
+	         nodeRef: "${nodeRef?js_string}",
+	         siteId: <#if site??>"${site?js_string}"<#else>null</#if>,
+	         containerId: "${container?js_string}",
+	         workingCopyVersion: <#if workingCopyVersion??>"${workingCopyVersion?js_string}"<#else>null</#if>,
+	         allowNewVersionUpload: ${allowNewVersionUpload?string}
+	      }).setMessages(
+	         ${messages}
+	      );
+      
       //]]></script>
 
       <div id="${el}-body" class="document-versions document-details-panel">

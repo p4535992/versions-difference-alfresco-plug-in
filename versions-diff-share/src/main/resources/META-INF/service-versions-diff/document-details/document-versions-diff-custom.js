@@ -164,9 +164,17 @@
       getDocumentVersionMarkup: function DocumentVersions_getDocumentVersionMarkup(doc)
       {
     	 //New variable declaration for Versions Diff page URL construction
-    	 var versionsDiffURL = Alfresco.constants.URL_PAGECONTEXT + 'site/' + this.options.siteId +'/versions-difference?nodeRef=' + this.options.nodeRef + '&amp;versRef=' + doc.nodeRef;
-    	 var downloadURL = Alfresco.constants.PROXY_URI + '/api/node/content/' + doc.nodeRef.replace(":/", "") + '/' + doc.name + '?a=true',
-            html = '';
+    	 
+    	 // /share/page/site/null/versions-difference?nodeRef=workspace://SpacesStore/8514a983-a247-4b94-af99-6667f1c291e7&amp;versRef=versionStore://version2Store/d1824707-a5b7-4b27-aa57-75b1fc0c403c
+    	 //var versionsDiffURL = Alfresco.constants.URL_PAGECONTEXT + 'site/' + this.options.siteId +'/versions-difference?nodeRef=' + this.options.nodeRef + '&amp;versRef=' + doc.nodeRef;
+    	 //var versionsDiffURL = Alfresco.constants.PROXY_URI + Alfresco.constants.URL_PAGECONTEXT + 'site/' + this.options.siteId +'/versions-difference?nodeRef=' + this.options.nodeRef + '&amp;versRef=' + doc.nodeRef;
+    	 //var versionsDiffURL = Alfresco.constants.URL_PAGECONTEXT + '/service-versions-diff/versions-difference?nodeRef=' + this.options.nodeRef + '&amp;versRef=' + doc.nodeRef; 
+    	 var versionsDiffURL = Alfresco.constants.URL_PAGECONTEXT +'versions-difference?nodeRef=' + this.options.nodeRef + '&amp;versRef=' + doc.nodeRef;
+    	  
+    	 // https://localhost:8443/share/proxy/alfresco/api/node/content/versionStore/version2Store/d1824707-a5b7-4b27-aa57-75b1fc0c403c/2018-11-25_11-27-21.xml?a=true
+    	 var downloadURL = Alfresco.constants.PROXY_URI + 'api/node/content/' + doc.nodeRef.replace(":/", "") + '/' + doc.name + '?a=true',
+         
+    	 html = '';
 
          html += '<div class="version-panel-left">'
          html += '   <span class="document-version">' + $html(doc.label) + '</span>';

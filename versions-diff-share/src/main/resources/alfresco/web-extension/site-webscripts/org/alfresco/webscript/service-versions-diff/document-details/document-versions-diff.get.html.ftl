@@ -2,30 +2,22 @@
 <#include "/org/alfresco/components/component.head.inc" />
 <#include "/org/alfresco/include/alfresco-macros.lib.ftl" />
 
-<#-- Document Versions Custom -->
+
 <@markup id="css" >
+  <#-- Document Versions Custom -->
   <@link rel="stylesheet" type="text/css" href="${page.url.context}/res/service-versions-diff/document-details/document-versions-diff-custom.css" />
-</@>
-
-<@markup id="js">
-   <@script type="text/javascript" src="${page.url.context}/res/service-versions-diff/document-details/document-versions-diff-custom.js"></@script>
-</@>
-
-<#-- Revert Version -->
-<@markup id="css" >
+  <#-- Revert Version -->
   <@link rel="stylesheet" type="text/css" href="${page.url.context}/res/modules/document-details/revert-version.css" />
-</@>
-
-<@markup id="js">
-   <@script type="text/javascript" src="${page.url.context}/res/modules/document-details/revert-version.js"></@script>
-</@>
-
-<#-- Historic Properties Viewer -->
-<@markup id="css" >
+  <#-- Historic Properties Viewer -->
   <@link rel="stylesheet" type="text/css" href="${page.url.context}/res/modules/document-details/historic-properties-viewer.css" />
 </@>
 
 <@markup id="js">
+   <#-- Document Versions Custom -->
+   <@script type="text/javascript" src="${page.url.context}/res/service-versions-diff/document-details/document-versions-diff-custom.js"></@script>
+   <#-- Revert Version -->
+   <@script type="text/javascript" src="${page.url.context}/res/modules/document-details/revert-version.js"></@script>
+   <#-- Historic Properties Viewer -->
    <@script type="text/javascript" src="${page.url.context}/res/modules/document-details/historic-properties-viewer.js"></@script>
 </@>
 

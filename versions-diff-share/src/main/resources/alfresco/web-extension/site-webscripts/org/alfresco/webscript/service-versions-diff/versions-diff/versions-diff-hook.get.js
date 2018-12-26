@@ -18,8 +18,9 @@
 		var array = jsonUtils.toObject(data);
 		if(array !== null && array["message"] !== null){
 			model.result = array["message"];	
-			//logger.log("Data:" + JSON.stringify(data) + ", Array:" + JSON.stringify(array));
+			logger.warn("Data 2:" + data + ", Array:" + array);
 		}else{
+			logger.warn("Data 3:" + data);
 			//model.result = jsonUtils.toObject({'msg' : 'Cannot resolve versions-diff-hook passed data:'+ data});
 			model.result = null;
 		}		

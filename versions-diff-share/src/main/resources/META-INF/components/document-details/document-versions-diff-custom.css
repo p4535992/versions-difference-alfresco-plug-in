@@ -66,13 +66,9 @@
 
 .document-versions .actions a.versionsDiff {
 	padding-bottom: 1em;
-	padding-left: 0.5em;
-	padding-right: 0.5em;
-	padding-top: 0.5em;
 	/*background-image: url(./components/document-details/images/versions-diff-ico-16.png);*/
 	/*background-image: url(./images/versions-diff-ico-16.png);*/
-	/*background-image: url(/share/res/service-versions-diff/document-details/images/versions-diff-ico-16.png);*/
-	background-image: url(/share/res/components/document-details/images/versions-diff-ico-16.png);	
+	background-image: url(/share/res/service-versions-diff/document-details/images/versions-diff-ico-16.png);	
 }
 
 .document-versions .version-details-left {

@@ -64,15 +64,19 @@
 	background-image: url(/share/components/document-details/images/revert-16.png);
 }
 
-.document-versions .actions a.versionsDiff {
+.document-versions .actions a.versionsDiff,
+.versionsDiff{
 	padding-bottom: 1em;
 	padding-left: 0.5em;
 	padding-right: 0.5em;
 	padding-top: 0.5em;
+	/*TODO can't use my custom icon*/
 	/*background-image: url(./components/document-details/images/versions-diff-ico-16.png);*/
 	/*background-image: url(./images/versions-diff-ico-16.png);*/
 	/*background-image: url(/share/res/service-versions-diff/document-details/images/versions-diff-ico-16.png);*/
-	background-image: url(/share/res/components/document-details/images/versions-diff-ico-16.png);	
+	/*background-image: url(/share/res/components/document-details/images/versions-diff-ico-16.png); */		
+	/*background-image: url(./images/document-view-metadata-16.png) !important;*/
+	background-image: url(/share/components/document-details/images/document-view-metadata-16.png); 
 }
 
 .document-versions .version-details-left {

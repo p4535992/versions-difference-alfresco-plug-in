@@ -62,6 +62,7 @@ import org.alfresco.service.cmr.repository.ContentService;
 import org.alfresco.service.cmr.repository.ContentWriter;
 import org.alfresco.service.cmr.repository.MimetypeService;
 import org.alfresco.service.cmr.repository.NodeRef;
+import org.alfresco.service.cmr.repository.TransformationOptions;
 import org.alfresco.repo.content.MimetypeMap;
 import org.alfresco.repo.content.transform.ContentTransformer;
 import org.apache.commons.lang.StringUtils;
@@ -78,6 +79,7 @@ public class VersionsDifferenceWebscript extends DeclarativeWebScript
 {
     private static Log logger = LogFactory.getLog(VersionsDifferenceWebscript.class);
 
+    private static final String PARAM_CONTENT = "content";
     private ServiceRegistry serviceRegistry;
     
     // for Spring injection
@@ -123,9 +125,13 @@ public class VersionsDifferenceWebscript extends DeclarativeWebScript
 	                String[] obj = {element.operation.toString(), element.text.toString()};
 	                diffObjList.add(obj);
 	            }
-	            
-	            
 	            model.put("result", diffObjList);
+	            
+	            
+	            String text1 = getPlainTxtTrasformation(lastVersRef);
+	            String text2 = getPlainTxtTrasformation(selectVersRef);	            	            
+	            model.put("text1", text1);
+	            model.put("text2", text2);
 	            return model;
 	            
 	            //final JSONObject jsonObject = new JSONObject();
@@ -255,7 +261,10 @@ public class VersionsDifferenceWebscript extends DeclarativeWebScript
 
                     try
                     {
-                        transformer.transform(reader, writer);
+						final TransformationOptions transformationOptions = new TransformationOptions();
+						transformationOptions.setSourceNodeRef(nodeRef);
+						transformer.transform(reader, writer, transformationOptions);	
+                        //transformer.transform(reader, writer);
                         // point the reader to the new-written content
                         reader = writer.getReader();
                         // Check that the reader is a view onto something concrete

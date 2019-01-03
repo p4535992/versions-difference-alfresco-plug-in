@@ -17,4 +17,10 @@
             }
     </#if>
     ]
+<#if text1??>
+,"text1" : ${text1}
+</#if>
+<#if text2??>
+,"text2" : ${text2}
+</#if>
 }

@@ -16,12 +16,15 @@
 		//model.result = array["message"];
 		//var array = JSON.parse(JSON.stringify(data));
 		var array = jsonUtils.toObject(data);
+		//console.error("Data 1:" + data + ", Array:" + array);
 		if(array !== null && array["message"] !== null){
 			model.result = array["message"];	
-			logger.error("Data 2:" + data + ", Array:" + array);
+			//console.error("Data 2:" + data + ", Message:" + array["message"]);
 		}else{
-			logger.error("Data 3:" + data);
+			//console.error("Data 3:" + data);
 			//model.result = jsonUtils.toObject({'msg' : 'Cannot resolve versions-diff-hook passed data:'+ data});
 			model.result = null;
 		}	
+		model.text1 = data["text1"];
+		model.text2 = data["text2"];
 	}

@@ -1,0 +1,11 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<webscript>
+    <shortname>versions-diff-hook-GET</shortname>
+    <description>Versions Difference Java backed page-hook Script</description>
+    <family>Alfresco Repo WebScripts Hook</family>
+    <!-- <url>/components/versions-diff-hook</url> -->
+    <url>/components/service-versions-diff-mergely/versions-diff-hook-mergely</url>
+    <!-- <format default="html">extension</format> -->
+    <format default="html">extension</format>
+    <transaction>none</transaction>
+</webscript>

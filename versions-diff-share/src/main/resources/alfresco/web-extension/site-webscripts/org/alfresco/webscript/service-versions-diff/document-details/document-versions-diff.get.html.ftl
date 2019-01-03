@@ -1,4 +1,3 @@
-<#-- <#include "../component.head.inc"> -->
 <#include "/org/alfresco/components/component.head.inc" />
 <#include "/org/alfresco/include/alfresco-macros.lib.ftl" />
 

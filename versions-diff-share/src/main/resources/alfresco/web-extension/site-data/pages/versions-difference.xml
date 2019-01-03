@@ -71,17 +71,24 @@
       </component>
       
         <!-- Left Column -->
+  		<!--  
         <component>
             <region-id>left-column</region-id>
-            <!-- <url>/components/versions-diff-hook</url> -->
             <url>/components/service-versions-diff/versions-diff-hook</url>
         </component>
-
+		-->
         <!-- Right Column -->
+        <!-- 
         <component>
             <region-id>right-column</region-id>
-            <!-- <url>/components/versions-diff-hook</url> -->
             <url>/components/service-versions-diff/versions-diff-hook</url>
+        </component>
+        -->
+        
+        <!-- MERGELY -->
+        <component>
+            <region-id>left-column</region-id>
+            <url>/components/service-versions-diff-mergely/versions-diff-hook-mergely</url>
         </component>
    </components>
 </page>

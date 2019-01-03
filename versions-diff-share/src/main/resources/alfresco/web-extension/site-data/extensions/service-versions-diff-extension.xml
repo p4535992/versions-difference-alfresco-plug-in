@@ -21,7 +21,6 @@
                                     <evaluators>    
                                         <evaluator type= "service-versions-diff.evaluator.doclib.action.versionsdiff.checkMimetype" ></evaluator>                                
                                     </evaluators>
-                                    <!-- <url>/components/document-details/document-versions-diff</url>  -->
                                     <url>/components/service-versions-diff/document-versions-diff</url>
                                     <render>true</render>
 								</evaluation>
@@ -30,6 +29,22 @@
 					</sub-components>
 				</component>
 			</components>
+			
+			<configurations>
+			
+				<!-- ================================= -->
+	            <!-- CUSTOMIZATION -->
+	            <!-- ================================= -->
+            
+				<config evaluator="string-compare" condition="DocLibCustom">
+					<dependencies>	
+						<css src="/service-versions-diff/document-details/versions-diff-page.css"/>					
+						<css src="/service-versions-diff/document-details/document-versions-diff-custom.css"/>
+						<js src="/service-versions-diff/document-details/document-versions-diff-custom.js" />
+					</dependencies>
+				</config>
+			
+			</configurations>
 		</module>
 	</modules>
 </extension>

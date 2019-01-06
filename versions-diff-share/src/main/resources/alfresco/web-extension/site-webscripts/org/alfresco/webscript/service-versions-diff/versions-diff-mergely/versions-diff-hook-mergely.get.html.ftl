@@ -1,24 +1,16 @@
-<!-- Requires jQuery -->
-<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-
-<!-- Requires CodeMirror -->
-<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.32.0/codemirror.min.js"></script>
-<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.32.0/addon/search/searchcursor.min.js"></script>
-<link type="text/css" rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.32.0/codemirror.min.css" />
-
 <@markup id="css" >  
-	<#-- 
-    <@link type="text/css" rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.32.0/codemirror.min.css" /> 
-	-->
+	
+    <@link type="text/css" rel="stylesheet" href="${url.context}/res/service-versions-diff/mergely/codemirror.min.css" /> 
+	
 	<@link type="text/css" rel="stylesheet" href="${url.context}/res/service-versions-diff/mergely/mergely.css" />
 </@>
    
 <@markup id="js">
-	<#--
-	<@script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></@script>  	
-	<@script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.32.0/codemirror.min.js"></@script>
-	<@script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.32.0/addon/search/searchcursor.min.js"></@script>
-	-->
+	
+	<@script type="text/javascript" src="${url.context}/res/service-versions-diff/mergely/jquery.min.js"></@script>  	
+	<@script type="text/javascript" src="${url.context}/res/service-versions-diff/mergely/codemirror.min.js"></@script>
+	<@script type="text/javascript" src="${url.context}/res/service-versions-diff/mergely/searchcursor.min.js"></@script>
+	
 	<@script type="text/javascript" src="${url.context}/res/service-versions-diff/mergely/mergely.js"></@script>
 		
 	<#-- <@script type="text/javascript" src="${url.context}/res/service-versions-diff/mergely/Timer.js"></@script>   --> 
